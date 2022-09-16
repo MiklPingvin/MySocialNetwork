@@ -1,0 +1,11 @@
+.editGroup input{
+    font-size: 30px;
+}
+.editGroup button{
+    font-size: 20px;
+}
+.buttons{
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}

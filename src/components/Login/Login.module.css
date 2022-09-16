@@ -1,0 +1,28 @@
+.add{
+    font-size: 30px;
+    padding: 5px;
+}
+.add div{
+    padding: 5px;
+}
+.add input{
+    font-size: 30px;
+    padding: 10px;
+    resize: none
+}
+.error{
+    padding: 10px;
+}
+.error input{
+    font-size: 30px;
+     border: solid red 7px;
+
+
+}
+.errorMessage{
+    color:white;
+    background: red;
+}
+.all{
+    text-align: center
+}

@@ -1,0 +1,49 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    height: 95vh;
+    grid-template-areas:
+    "A   B"
+    "A   C";
+
+    grid-template-rows: 8fr 1fr;
+    grid-gap: 10px ;
+}
+.dialogsItems{
+    padding: 30px;
+    overflow: auto;
+    grid-area: A ;
+}
+
+.dialogsItems .active{
+    color: #ffffff;
+}
+.dialog{
+
+}
+.messages{
+    grid-area: B ;
+    padding: 30px;
+    margin-top: fill;
+    overflow: auto;
+    display: grid;
+    grid-auto-rows: max-content;
+    hyphens: auto;
+    align-self: end;
+
+}
+
+.messages::-webkit-scrollbar {
+    display: none;
+}
+.add{
+    grid-area: C;
+    align-self: end;
+    height: 180px;
+}
+.add button{
+    font-size: 30px;
+}
+.add textarea{
+    font-size: 30px;
+}

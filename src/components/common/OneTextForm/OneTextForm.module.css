@@ -1,0 +1,15 @@
+.add{
+    font-size: 30px;
+}
+.add textarea{
+    font-size: 30px;
+    resize: none
+}
+ .error textarea{
+    font-size: 30px;
+     border: solid red 7px;
+}
+.error span{
+    color:white;
+    background: red;
+}

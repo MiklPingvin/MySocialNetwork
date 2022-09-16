@@ -1,0 +1,42 @@
+.header{
+    grid-area: h;
+    background-color: gray;
+    position: relative;
+}
+.header img{
+    width: 40px;
+}
+.withLogin{
+    display: inline;
+    vertical-align: top;
+    position: relative;
+    width: 100vw;
+}
+.loginBlock{
+    float: right;
+    font-size: 30px;
+    width: 250px;
+    height: 50px;
+    padding: 3px 20px 1px 1px;
+}
+.loginBlock a {
+    color: white;
+    text-decoration: none;
+}
+.login{
+    color: white;
+    padding: 5px 0 1px 1px;
+    position: absolute;
+}
+.ava_pic{
+    padding: 5px 15px 1px 1px;
+}
+.onNameClick{
+    font-size: 30px;
+    border: 1px solid black ;
+    color: white;
+    background: grey;
+    float: right;
+    margin: 7px 5px;
+}
+

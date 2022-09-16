@@ -1,0 +1,8 @@
+.item a {
+    color: white;
+    font-size: 30px;
+    text-decoration: none;
+}
+.item .activeLink{
+    color: black;
+}

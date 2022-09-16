@@ -1,0 +1,11 @@
+.dialog{
+    padding: 10px;
+}
+.ava_pic{
+    width: 60px;
+    border-radius: 30px;
+}
+.name{
+    text-decoration: none;
+    color: black;
+}

@@ -1,0 +1,26 @@
+.userPhoto{
+    width: 150px;
+    height: 150px;
+    float: left;
+    padding: 10px;
+}
+
+.selectedPageNumber{
+    font-weight: bold;
+    padding: 15px;
+}
+.pageNumber{
+    padding: 5px;
+}
+.users{
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.userCard{
+    padding: 5px;
+}
+.followButton{
+    font-size: 20px;
+}
