@@ -2,27 +2,14 @@ import React from "react";
 import s from "./Users.module.css";
 import userPhoto from "../../assets/imeges/user.jpg";
 import {NavLink} from "react-router-dom";
+import Paginator from "./Paginator/Paginator";
 
 let Users = (props) => {
-    let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize)
-
-    let pages = [];
-    for (let i = 1; i <= pagesCount; i++) {
-        pages.push(i)
-    }
-    let curP = props.currentPage;
-    let curPF = ((curP - 5) < 0) ? 0 : curP - 5;
-    let curPL = curP + 5;
-    let slicedPages = pages.slice(curPF, curPL);
     return (
         <div>
-            <div>
-                {slicedPages.map(p => {
-                    return <span onClick={() => {
-                        props.onPageChange(p)
-                    }} className={p === props.currentPage ? s.selectedPageNumber : s.pageNumber} key={p}>{p}</span>
-                })}
-            </div>
+            <Paginator totalItemsCount={props.totalUsersCount} pageSize={props.pageSize} onPageChange={props.onPageChange}
+                       currentPage={props.currentPage}
+            />
             <div className={s.users}>
                 {
                     props.users.map(u => <div key={u.id} className={s.userCard}>
@@ -56,6 +43,7 @@ let Users = (props) => {
                     </div>)
                 }
             </div>
+
         </div>)
 }
 export default Users

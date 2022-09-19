@@ -5,7 +5,6 @@ import OneTextForm from "../../common/OneTextForm/OneTextForm";
 
 
 const MyPosts = (props) => {
-    console.log('yf')
     let postsElements = props.profilePage.posts.map(
         (post) => <Post message={post.message} key={post.id} smallPhoto={props.profilePage.profile.photos.smallPhoto} likeCount={post.likesCount}/>
     ).reverse()

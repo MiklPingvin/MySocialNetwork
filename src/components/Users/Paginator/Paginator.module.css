@@ -1,0 +1,14 @@
+.selectedPageNumber {
+    font-weight: bold;
+    padding: 15px;
+}
+
+.pageNumber {
+    padding: 5px;
+}
+.changePortion {
+    font-size: 30px;
+}
+.change{
+    font-size: 35px;
+}

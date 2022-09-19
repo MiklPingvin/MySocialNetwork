@@ -1,4 +1,4 @@
-import profileReducer, {addPost} from "./profile-reducer";
+import profileReducer, {addPost} from "../redux/profile-reducer";
 
 test('new post should be added', () => {
     let action=addPost('hello')

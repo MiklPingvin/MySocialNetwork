@@ -5,13 +5,6 @@
     padding: 10px;
 }
 
-.selectedPageNumber{
-    font-weight: bold;
-    padding: 15px;
-}
-.pageNumber{
-    padding: 5px;
-}
 .users{
     padding: 5px 5px;
     display: flex;
