@@ -55,7 +55,8 @@ class ProfileStatus extends React.Component {
                         </button>
                     </div>
                 </div> :
-                    <span onDoubleClick={() => {
+                    <span className={s.my_status}
+                        onDoubleClick={() => {
                         this.activateEditMode()
                     }}>{this.props.status || 'No status'}</span>
             }

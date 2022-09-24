@@ -1,7 +1,7 @@
 import React, {Suspense, lazy} from "react";
 import './App.css';
 import Navbar from "./components/Navbar/Navbar";
-import {BrowserRouter, Route, Router, Routes} from "react-router-dom";
+import {HashRouter, Route, Router, Routes} from "react-router-dom";
 import News from "./components/News/News";
 import Settings from "./components/Settings/Settings";
 import Music from "./components/Music/Music";
@@ -29,39 +29,36 @@ class App extends React.Component {
     render() {
         return (
 
-            <BrowserRouter>
-
-                <div className='app-wrapper'>
-                    <HeaderContainer/>
-                    <Navbar
-                    />
-                    <div className='content'>
-                        <React.Suspense fallback={<div>lo</div>}>
-                            <Routes>
-                                <Route path='/profile/:userID' element=
-                                    <ProfileContainer/>
-                                />
-                                <Route path='/profile/' element=
-                                    <ProfileContainer/>
-                                />
-                                <Route path="/" element=
-                                    <ProfileContainer/>
-                                />
-                                <Route path="/messages/*" element={<DialogsContainer/>}
-                                />
-                                <Route path="/login" element={
-                                    <Login/>
-                                }/>
-                                <Route path="/news" element={<News/>}/>
-                                <Route path="/music" element={<Music/>}/>
-                                <Route path="/settings" element={<Settings/>}/>
-                                <Route path="/users" element={<UsersContainer/>}/>
-                            </Routes>
-                        </React.Suspense>
-                    </div>
+            <div className='app-wrapper'>
+                <HeaderContainer/>
+                <Navbar
+                />
+                <div className='content'>
+                    <React.Suspense fallback={<div>lo</div>}>
+                        <Routes>
+                            <Route path='/profile/:userID' element=
+                                <ProfileContainer/>
+                            />
+                            <Route path='/profile/' element=
+                                <ProfileContainer/>
+                            />
+                            <Route path="/" element=
+                                <ProfileContainer/>
+                            />
+                            <Route path="/messages/*" element={<DialogsContainer/>}
+                            />
+                            <Route path="/login" element={
+                                <Login/>
+                            }/>
+                            <Route path="/news" element={<News/>}/>
+                            <Route path="/music" element={<Music/>}/>
+                            <Route path="/settings" element={<Settings/>}/>
+                            <Route path="/users" element={<UsersContainer/>}/>
+                        </Routes>
+                    </React.Suspense>
                 </div>
+            </div>
 
-            </BrowserRouter>
 
         );
     }
@@ -72,8 +69,9 @@ let AppContainer = connect((state) => ({
 }), {initializeApp})(App);
 const MainApp = () => {
     return <Provider store={store}>
-
-        <AppContainer/>
+        <HashRouter >
+            <AppContainer/>
+        </HashRouter>
     </Provider>
 
 }

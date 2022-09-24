@@ -8,7 +8,6 @@ let initialState = {
         id: null,
         email: null,
         login: null,
-        smallPhoto: null
     },
     isAuth: false,
     isFetching: false
@@ -43,8 +42,7 @@ export const authUserWithPhoto = () => async (dispatch) => {
     let response = await authAPI.authMe()
     if (response.resultCode === 0) {
         let {id, login, email} = response.data
-        let profile = await profileAPI.getProfile(id)
-        dispatch(setAuthUserData(id, email, login, true, profile.photos.small))
+        dispatch(setAuthUserData(id, email, login, true))
     }
     return response
 }
@@ -60,7 +58,7 @@ export const login = (email, pass, rememberMe, setStatus) => async (dispatch) =>
 export const loginOut = () => async (dispatch) => {
     let response = await authAPI.loginOut()
     if (response.data.resultCode === 0) {
-        dispatch(setAuthUserData(null, null, null, false, null))
+        dispatch(setAuthUserData(null, null, null, false))
     }
 }
 export default authReducer

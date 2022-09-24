@@ -6,11 +6,14 @@ import React from "react";
 const Profile = (props) => {
     return (
         <div className={s.profile}>
-            <ProfileInfo profile = {props.profile}
+            <ProfileInfo
+                savePhoto={props.savePhoto}
+                isOwner={props.isOwner}
+                profile = {props.profile}
                          status = {props.status}
                          updateUserStatus={props.updateUserStatus}
             />
-            {props.profile && props.profile.userId ===25279? <MyPostsContainer /> : null}
+            {props.profile && props.isOwner? <MyPostsContainer /> : null}
         </div>
     )
 }

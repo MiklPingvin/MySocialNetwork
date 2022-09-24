@@ -1,15 +1,6 @@
-.main_pic {
-    width: 1000px;
-    height: 500px;
-}
-
-.ava_pic {
-    width: 300px;
-    float: left;
-    padding: 0 20px 0 0;
-}
-
 .description {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
     padding: 30px;
     height: 300px;
     position: relative;
@@ -20,27 +11,17 @@
     font-size: 30px;
 }
 
-.work_status img {
-    width: 50px;
+
+.status {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 30px;
+    font-size: 1.17em;
     height: 50px;
-    float: left;
+
 }
 
-.work_status {
-    height: 70px;
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    bottom: 40px;
-    left: 35%;
-}
-.work_status .text{
-    padding-left: 10px;
-    top:50%
-}
-.status{
-    display:flex;
-    padding: 5px;
-    flex-direction:row;
-    flex-wrap:wrap;
+.name_status {
+    font-weight: bold;
 }

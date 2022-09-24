@@ -1,0 +1,20 @@
+.ava_pic {
+    float: left;
+    width: 300px;
+    position: absolute;
+}
+.input{
+    float: left;
+    width: 300px;
+    position: absolute;
+    z-index: 1;
+    background-color: #7f7f7f;
+    opacity: 0.75;
+}
+.out{
+    opacity: 0;
+    float: left;
+    width: 300px;
+    position: absolute;
+    padding: 20px 20px ;
+}

@@ -14,7 +14,7 @@ let mapStateToProps = (state) => {
 
 const MyPostsContainer= compose(
     connect(mapStateToProps, {addPost}),
-    React.memo
+    //React.memo
 )(MyPosts)
 
 //const MyPostsContainer = connect(mapStateToProps, {addPost})(MyPosts);

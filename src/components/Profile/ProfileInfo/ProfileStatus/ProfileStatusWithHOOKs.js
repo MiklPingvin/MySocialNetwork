@@ -12,7 +12,7 @@ const ProfileStatusWithHooks = (props) => {
 
 
     return (<div>
-        {editMode ?
+        {editMode  ?
             <div className={s.editGroup}>
                 <input value={status}
                        autoFocus={true}
@@ -44,7 +44,7 @@ const ProfileStatusWithHooks = (props) => {
             <div>
                     <span
                         onDoubleClick={() => {
-                            setEditMode(true)
+                            {props.isOwner && setEditMode(true)}
                         }}
                     >{props.status || 'No status'}</span>
 
