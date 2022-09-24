@@ -16,7 +16,7 @@ const Description = ({profile}) => {
             <div className={s.text}>{profile.lookingForAJobDescription}</div>
         </div>
         <button className={s.button} onClick={()=>setFormActive(true)}>Редактировать</button>
-        {formActive && <Modal active={formActive} setActive={setFormActive} children={<DescriptionForm profile={profile}/>} />}
+        {formActive && <Modal active={formActive} setActive={setFormActive} children={<DescriptionForm setFormActive={setFormActive} profile={profile}/>} />}
         </div>
         )}
 

@@ -1,6 +1,5 @@
 import s from './Navbar.module.css'
 import MyLink from "./MyLink/MyLink";
-import FriendsContainer from "./Friends/FriendsContainer";
 
 const Navbar = () => {
     return (
@@ -11,7 +10,6 @@ const Navbar = () => {
             <MyLink to='/users' name='Find User'/>
             <MyLink to="/music" name='Music'/>
             <MyLink to="/settings" name='Settings'/>
-            <FriendsContainer/>
         </nav>
     )
 }
