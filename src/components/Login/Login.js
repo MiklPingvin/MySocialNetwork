@@ -8,17 +8,18 @@ import {Navigate} from "react-router-dom";
 import {LoginForm} from "./login-form";
 
 
-const Login = ({isAuth, login}) => {
+const Login = ({isAuth, login,captchaUrl}) => {
 
     if (isAuth) {
         return <Navigate to={'/profile'}/>
     }
-
     return <div className={s.all}>
         <h1>Login</h1>
-        <LoginForm login={login}/>
+        <LoginForm login={login} captchaUrl={captchaUrl}/>
     </div>
 }
 export default connect((state) => {
-    return {isAuth: state.auth.isAuth}
+    return {isAuth: state.auth.isAuth,
+        captchaUrl: state.auth.captchaUrl
+    }
 }, {login, loginOut})(Login)

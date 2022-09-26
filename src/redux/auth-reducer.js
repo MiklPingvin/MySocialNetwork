@@ -1,7 +1,8 @@
-import {authAPI, profileAPI} from "../api/api";
+import {authAPI, profileAPI, securityAPI} from "../api/api";
 
 const TOGGLE_IS_FETCHING = 'TOGGLE_IS_FETCHING'
 const SET_USER_DATA = 'SET_USER_DATA'
+const SET_CAPTCHA = 'SET_CAPTCHA'
 
 let initialState = {
     data: {
@@ -10,7 +11,8 @@ let initialState = {
         login: null,
     },
     isAuth: false,
-    isFetching: false
+    isFetching: false,
+    captchaUrl: null
 }
 
 const authReducer = (state = initialState, action) => {
@@ -27,6 +29,12 @@ const authReducer = (state = initialState, action) => {
                 data: action.data
             }
         }
+        case SET_CAPTCHA: {
+            return {
+                ...state,
+                captchaUrl: action.captchaUrl
+            }
+        }
         default:
             return state
     }
@@ -37,6 +45,11 @@ export const setAuthUserData = (id, email, login, isAuth, smallPhoto) => ({
     isAuth: isAuth,
     data: {id, email, login, smallPhoto}
 })
+const setCaptcha = (captchaUrl) => ({
+    type: SET_CAPTCHA,
+    captchaUrl: captchaUrl
+})
+
 
 export const authUserWithPhoto = () => async (dispatch) => {
     let response = await authAPI.authMe()
@@ -47,11 +60,15 @@ export const authUserWithPhoto = () => async (dispatch) => {
     return response
 }
 
-export const login = (email, pass, rememberMe, setStatus) => async (dispatch) => {
-    let response = await authAPI.login(email, pass, rememberMe)
+export const login = (email, pass, rememberMe, captcha, setStatus) => async (dispatch) => {
+    debugger
+    let response = await authAPI.login(email, pass, rememberMe, captcha)
     if (response.data.resultCode === 0) {
         dispatch(authUserWithPhoto())
     } else {
+        if (response.data.resultCode === 10) {
+            dispatch(getCaptcha())
+        }
         setStatus(response.data.messages)
     }
 }
@@ -61,4 +78,10 @@ export const loginOut = () => async (dispatch) => {
         dispatch(setAuthUserData(null, null, null, false))
     }
 }
+export const getCaptcha = () => async (dispatch) => {
+    let response = await securityAPI.getCaptcha()
+    dispatch(setCaptcha(response.url))
+
+}
+
 export default authReducer

@@ -3,13 +3,14 @@ import * as Yup from "yup";
 import s from "./Login.module.css";
 import React from "react";
 
-export const LoginForm = ({login}) => {
+export const LoginForm = ({login, captchaUrl}) => {
 
     const formik = useFormik({
         initialValues: {
             email: '',
             password: '',
-            rememberMe: true
+            rememberMe: true,
+            captcha: null
         },
         validateOnBlur: false,
         validateOnChange: false,
@@ -19,14 +20,13 @@ export const LoginForm = ({login}) => {
                 .max(20, `Must be 15 characters or less`),
             password: Yup.string()
                 .required('Required')
-                .max(15, `Must be 15 characters or less`)
+                .max(15, `Must be 15 characters or less`),
         }),
         onSubmit: (values, {setSubmitting, setStatus}) => {
-            login(values.email, values.password, values.rememberMe, setStatus)
+            login(values.email, values.password, values.rememberMe, values.captcha, setStatus)
             setSubmitting(false)
         }
     })
-
     return (
         <form onSubmit={formik.handleSubmit} className={s.add}>
             <div className={formik.errors.email ? s.error : null}>
@@ -58,6 +58,8 @@ export const LoginForm = ({login}) => {
                        checked={formik.values.rememberMe}
                        onChange={formik.handleChange}/>Remember me
             </div>
+            {captchaUrl && <img src={captchaUrl} alt=""/>}
+            {captchaUrl && <div><input name={'captcha'} type="text" onChange={formik.handleChange}  placeholder='Symbols for picture'/></div>}
             <div>
                 <button className={s.add} type={"submit"} disabled={formik.isSubmitting}>Login</button>
                 {formik.status && <div className={s.errorMessage}>{formik.status}</div>}
